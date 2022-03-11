@@ -1,0 +1,547 @@
+  .App {
+    text-align: center;
+  }
+
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+
+  @font-face {
+    font-family: 'Insanibu';
+    src: url('./assets/fonts/Insanibu.woff') format('woff');
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  .App-link {
+    color: #61dafb;
+  }
+
+  .sectionMargin {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .navFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: -0.5rem;
+  }
+
+  .navLogo {
+    width: 6vw;
+  }
+
+  .navOwner {
+    width: 8vw;
+  }
+
+  .navToggleMobile {
+    margin-right: 0.8rem;
+  }
+
+  .navMobile {
+    margin-right: 0.8rem;
+  }
+
+  .navStickyTop {
+    position: sticky;
+  }
+
+  .carouselImage1 {
+    background-image: url("./assets/img/quiriSlide1.png");
+    width: 100%;
+    min-height: 50rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+  }
+
+  .carouselImage2 {
+    background-image: url("./assets/img/quiriSlide2.png");
+    width: 100%;
+    min-height: 50rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+  }
+
+  .carouselSpace {
+    margin-top: 4rem;
+  }
+
+  .stickyBar {
+    position: sticky;
+  }
+
+  .cartBtn {
+    width: 100%;
+    padding: 0.875rem;
+    border: 0.125rem;
+    letter-spacing: 0.063rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255, 145, 71);
+    justify-content: right;
+  }
+
+  .cartBtn:hover {
+    background-color: rgb(255, 145, 71);
+    color: #FFFF;
+    transition: 0.2s;
+  }
+
+
+  .btn {
+    padding: 0.875rem 1.25rem 0.5rem;
+    border: 0.125rem;
+    letter-spacing: 0.063rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255, 145, 71);
+    justify-content: right;
+  }
+
+  .btn:hover {
+    background-color: rgb(255, 145, 71);
+    color: #FFFF;
+    transition: 0.2s;
+  }
+
+  .btnSize {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1rem;
+  }
+
+  .navText {
+    font-family: 'Insanibu';
+    font-size: 0.938rem;
+
+    letter-spacing: .01em;
+  }
+
+  .menuTitle {
+    text-transform: capitalize;
+    font-family: 'Insanibu';
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    color: rgb(255, 145, 71);
+    padding: 1rem;
+  }
+
+  .redSeparator {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    background-color: rgb(214, 13, 13);
+    color: #FFFF;
+    padding: 1rem;
+  }
+
+  .menuCardRow {
+    display: flex;
+    justify-content: center;
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
+
+  .menuCardStyle {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    padding-top: 0.5rem;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .menuCardStyle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .cardImageBox {
+    background-color: rgb(255, 145, 71);
+    border-radius: 1.5rem;
+    margin-top: -0.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+  }
+
+  .cardProductImage {
+    width: 100%;
+  }
+
+  .cardProductTitle {
+    font-family: 'Insanibu';
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: rgb(124,78,47);
+  }
+
+  .cardProductDescription {
+    font-family: 'Insanibu';
+    text-align: justify;
+    letter-spacing: 0.1rem;
+    color: rgb(124,78,47);
+  }
+
+  /* .cardButtonGroupFlex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cardWhatsappBtn {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    border-bottom-right-radius: 0rem;
+    border-top-right-radius: 0rem;
+    align-content: center;
+    display: 'flex';
+    justify-content: 'center';
+    padding: 0.5rem;
+    border: 0.125rem;
+    letter-spacing: 0.063rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255, 145, 71);
+    justify-content: right;
+  } */
+
+  /* .cardWhatsappBtn:hover {
+    background-color: #25d366;
+    color: #FFFF;
+    transition: 0.2s;
+  } */
+
+  /* .cardWhatsappBtnSize {
+    width: 2vw;
+  } */
+
+  .shopCartList {
+    font-family: 'Insanibu';
+    font-size: 1rem;
+    letter-spacing: .01em;
+    color: black;
+    padding: 1rem;
+    margin-top: -1.5rem;
+  }
+
+  .shopCartTotal {
+    font-family: 'Insanibu';
+    font-size: 1rem;
+    letter-spacing: .01em;
+    color: black;
+    padding: 1rem;
+  }
+
+  .shopCartBtnCenter {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cardShopCartBtnGroup {
+    font-family: 'Insanibu';
+    width: 100%;
+    margin-top: 1rem;
+    margin-right: 0.2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    border: 0.125rem;
+    letter-spacing: 0.063rem;
+    text-transform: uppercase;
+    color: rgb(255, 145, 71);
+    
+  }
+
+  .cardShopCartBtnGroup:hover {
+    background-color: rgb(255, 145, 71);
+    color: #FFFF;
+    transition: 0.2s;
+  }
+
+  .cardShopCartBtnSingle{
+    font-family: 'Insanibu';
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    border: 0.125rem;
+    letter-spacing: 0.063rem;
+    text-transform: uppercase;
+    color: rgb(255, 145, 71);
+  }
+
+  .cardShopCartBtnSingle:hover {
+    background-color: rgb(255, 145, 71);
+    color: #FFFF;
+    transition: 0.2s;
+  }
+
+  .valueLayout {
+    margin-top: 0.rem;
+  }
+
+  .footnoteText {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .parallax {
+    background-image: url("./assets/img/closeBurgerSalad.png");
+    min-height: 25rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: baseline;
+    display: 'flex';
+    justify-content: 'center';
+    margin-top: 1rem;
+  }
+
+  .parallaxLogo {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+  }
+
+  .restaurantText {
+    font-family: 'Insanibu';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    margin-top: 2rem;
+    padding-right: 4rem;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    color: rgb(124,78,47);
+  }
+
+  .restaurantBanner {
+    padding-left: 5rem;
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0), rgb(255, 145, 71));
+  }
+
+  .footerBgColor {
+    background-image: linear-gradient(rgba(255, 0, 0, 0), rgb(255, 145, 71));
+  }
+
+  .socialMediaLogo {
+    width: 2.5vw;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  .logoLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+    letter-spacing: .01em;
+  }
+
+  .footerTextLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+    font-family: 'Insanibu';
+    font-size: 2rem;
+  }
+
+  .restaurantLoungeImg {
+    margin-top: 5rem;
+    width: 80%;
+  }
+
+  @media (max-width: 414px) {
+
+    .navOwner {
+      width: 20vw;
+    }
+
+    .carouselImage1 {
+      background-image: url("./assets/img/quiriSlideMobile1.png");
+      height: 80vh;
+    }
+
+    .carouselImage2 {
+      background-image: url("./assets/img/quiriSlideMobile2.png");
+      height: 80vh;
+    }
+
+    .cardProductTitle {
+      font-size: xx-large;
+    }
+
+    .cardWhatsappBtnSize {
+      width: 6vw;
+    }
+
+    .parallaxLogo {
+      width: 200%;
+    }
+
+  }
+
+  @media (max-width: 992px) {
+    .navMobile {
+      display: flex;
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .btn {
+      margin-left: 10rem;
+      background-color: rgb(255, 145, 71);
+      color: #FFFF;
+    }
+
+    .navText {
+      font-size: 1.25rem;
+    }
+
+    .cardWhatsappBtnSize {
+      width: 6vw;
+    }
+
+  }
+
+  @media (max-width: 1024px) {
+    .navLogo {
+      width: 15vw;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 1rem;
+    }
+
+    .navOwner {
+      width: 20vw;
+    }
+
+    .btn {
+      padding: 0.3rem;
+    }
+
+    .carouselImage1 {
+      background-attachment: unset;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 150%;
+      align-content: unset;
+      min-height: 25rem;
+    }
+
+    .carouselImage2 {
+      background-attachment: unset;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 150%;
+      align-content: unset;
+      min-height: 25rem;
+    }
+
+    .carouselImage3 {
+      background-attachment: unset;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 150%;
+      align-content: unset;
+      min-height: 25rem;
+    }
+
+    .carouselCaptionMobile {
+      display: flex;
+    }
+
+    .menuCardRow {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+
+    .cardWhatsappBtn {
+      background-color: #25d366;
+      color: #FFFF;
+    }
+
+    .cardShopCartBtn {
+      background-color: rgb(255, 145, 71);
+      color: #FFFF;
+    }
+
+    .parallax {
+      min-height: 25rem;
+    }
+
+    .restaurantText {
+      padding: 0rem 2rem 0rem 2rem;
+    }
+
+    .socialMediaLogo {
+      width: 6vw;
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+
+    .logoLayout {
+      margin-top: 1rem;
+    }
+
+    .footerTextLayout {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
