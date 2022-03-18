@@ -13,8 +13,15 @@ import quiriSalad from "./assets/img/quiriSalad.png";
 import quiriRocket from "./assets/img/quiriRocket.png";
 import quiriCheddar from "./assets/img/quiriCheddar.png";
 import quiriBacon from "./assets/img/quiriBacon.png";
+import quiriBatata from "./assets/img/quiriBatata.png";
 import quiriLoja from "./assets/img/quiriLoja.jpeg";
+import quiriRestaurantLounge01 from "./assets/img/quiriRestaurantLounge01.jpeg";
+import quiriRestaurantLounge02 from "./assets/img/quiriRestaurantLounge02.jpeg";
+import quiriRestaurantLounge03 from "./assets/img/quiriRestaurantLounge03.jpeg";
+import quiriRestaurantLounge04 from "./assets/img/quiriRestaurantLounge04.jpeg";
+import quiriRestaurantLounge05 from "./assets/img/quiriRestaurantLounge05.jpeg";
 import closeBurgerSalad from "./assets/img/closeBurgerSalad.png"
+import leaf from "./assets/img/leaf.png"
 import { BsWhatsapp } from "react-icons/bs";
 import { GrFormClose } from "react-icons/gr";
 import { FiShoppingCart } from "react-icons/fi";
@@ -67,32 +74,69 @@ function App() {
     }
     )
 
-    window.location.href = `https://wa.me/5562999535234?text=Olá,%20quero%20pedir%20um%20Quiri!${mapValue} %0a%0a*Total ${totalValue.toFixed(2)}*`
+    window.location.href = `https://wa.me/5562982459389?text=Olá,%20quero%20pedir%20um%20Quiri!${mapValue} %0a%0a*Total ${totalValue.toFixed(2)}*`
   }
 
   function removeItemFromCart(index) {
 
     let newArray = countValue
+    let newCount = countItem
 
     const removeItemFromArray = newArray.splice(index, 1)
 
     setCountValue([...newArray])
     sumCart(newArray)
+    setCountItem(newCount - 1)
   }
+
+  function emptyShopCart(index) {
+
+    let emptyArray = countValue
+    let emptyCount = countItem
+
+    const emptyShopCartArray = emptyArray.splice(0)
+
+    setCountValue([...emptyArray])
+    setCountItem(emptyCount - countItem)
+  }
+
+  function hasTouch() {
+    return 'ontouchstart' in document.documentElement
+      || navigator.maxTouchPoints > 0
+      || navigator.msMaxTouchPoints > 0;
+  }
+
+  if (hasTouch()) {
+    try {
+      for (var si in document.styleSheets) {
+        var styleSheet = document.styleSheets[si];
+        if (!styleSheet.rules) continue;
+
+        for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+          if (!styleSheet.rules[ri].selectorText) continue;
+
+          if (styleSheet.rules[ri].selectorText.match(':hover')) {
+            styleSheet.deleteRule(ri);
+          }
+        }
+      }
+    } catch (ex) { }
+  }
+
+
 
   return (
     <div id='home' style={{ overflowX: 'hidden' }}>
       <Row>
         <ToastContainer
-          position="top-left"
-          autoClose={1500}
+          position="bottom-right"
+          autoClose={1000}
           hideProgressBar={true}
           newestOnTop={false}
           closeOnClick
           rtl={false}
           pauseOnFocusLoss
           draggable
-          pauseOnHover
         />
         <Navbar
           fixed="top"
@@ -105,7 +149,7 @@ function App() {
                 <Image src={quiriLogoSmall} alt="logo" className="navLogo" />
               </div>
             </Navbar.Brand>
-            <Navbar.Toggle className="btnSize navFlex">
+            <Navbar.Toggle className="btnShopCartSize navFlex">
               <FiShoppingCart style={{ marginRight: '0.3rem' }} />
               <div>
                 {countValue == ''
@@ -187,29 +231,38 @@ function App() {
                             >
                               Total R$ {totalValue.toFixed(2)}
                             </span>
-                            <button
-                              grow
-                              className="cartBtn"
-                              onClick={() => redirectToWhasapp()}
-                            >
-                              <BsWhatsapp
-                                className="cardWhatsappIcon"
-                                style={{ marginBottom: '0.3rem', marginRight: '0.3rem' }}
-                              />
-                              Peça agora!
-                            </button>
+                            <Row>
+                              <Col xs={12} md={6}>
+                                <button
+                                  grow
+                                  className="cartBtn"
+                                  onClick={() => emptyShopCart()}
+                                >
+                                  <BsWhatsapp
+                                    className="cardWhatsappIcon"
+                                    style={{ marginBottom: '0.3rem', marginRight: '0.3rem' }}
+                                  />
+                                  limpar carrinho
+                                </button>
+                              </Col>
+                              <Col xs={12} md={6}>
+                                <button
+                                  grow
+                                  className="cartBtn"
+                                  onClick={() => redirectToWhasapp()}
+                                >
+                                  <BsWhatsapp
+                                    className="cardWhatsappIcon"
+                                    style={{ marginBottom: '0.3rem', marginRight: '0.3rem' }}
+                                  />
+                                  fechar pedido
+                                </button>
+                              </Col>
+                            </Row>
                           </p>
                         }
                       </Col>
                     </Row>
-                    {/* <button
-                      grow
-                      className="cartBtn"
-                      onClick={() => redirectToWhasapp()}
-                    >
-                      <BsWhatsapp className="cardWhatsappIcon" style={{ marginBottom: '0.3rem', marginRight: '0.3rem' }} />
-                      Peça agora!
-                    </button> */}
                   </Nav.Link>
                 </Nav>
               </Offcanvas.Body>
@@ -220,17 +273,30 @@ function App() {
       <Carousel
         prevLabel=''
         nextLabel=''
-        style={{ display: 'flex', backgroundColor: 'black' }}
+        style={{ display: 'flex', backgroundColor: 'black', marginTop: '1rem' }}
+        interval='5000'
       >
-        <Carousel.Item className="carouselImage1" />
+        <Carousel.Item className="carouselImage1">
+          <Carousel.Caption>
+            O GIGANTE Quiri Salad
+          </Carousel.Caption>
+        </Carousel.Item>
 
-        <Carousel.Item className="carouselImage2" />
+        <Carousel.Item className="carouselImage2">
+          <Carousel.Caption>
+            Nosso saboroso burger de grão de bico, lentilha e especiarias
+          </Carousel.Caption>
+        </Carousel.Item>
 
       </Carousel>
       <p className="menuTitle">
         Nossos Quiris
       </p>
-      <Container fluid> {/* Cards do cardápio */}
+      <Container fluid style={{ backgroundColor: 'rgb(255, 195, 154)' }}>
+        <p className="menuDescription">
+          Monte seu pedido e clique no carrinho para finalizar.
+        </p>
+
         <Row className="menuCardRow">
           <Col sm={12} md={6} lg={6} xl={3} style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="menuCardStyle">
@@ -249,10 +315,10 @@ function App() {
               </h6>
               <ButtonGroup className="shopCartBtnCenter">
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Salad', 28)}>
-                  Sandúiche
+                  Sandúiche R$28
                 </button>
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Salad Combo', 38)}>
-                  Combo
+                  Combo R$38
                 </button>
               </ButtonGroup>
             </div>
@@ -274,10 +340,10 @@ function App() {
               </h6>
               <ButtonGroup className="shopCartBtnCenter">
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Rocket', 30)}>
-                  Sandúiche
+                  Sandúiche R$30
                 </button>
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Rocket Combo', 40)}>
-                  Combo
+                  Combo R$40
                 </button>
               </ButtonGroup>
             </div>
@@ -299,10 +365,10 @@ function App() {
               </h6>
               <ButtonGroup className="shopCartBtnCenter">
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Cheddar', 27)}>
-                  Sandúiche
+                  Sandúiche R$27
                 </button>
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Cheddar Combo', 37)}>
-                  Combo
+                  Combo R$37
                 </button>
               </ButtonGroup>
             </div>
@@ -324,10 +390,10 @@ function App() {
               </h6>
               <ButtonGroup className="shopCartBtnCenter">
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Bacon', 30)}>
-                  Sandúiche
+                  Sandúiche R$30
                 </button>
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Bacon Combo', 40)}>
-                  Combo
+                  Combo R$40
                 </button>
               </ButtonGroup>
             </div>
@@ -351,10 +417,10 @@ function App() {
               </h6>
               <ButtonGroup className="shopCartBtnCenter">
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Kiridis', 15)}>
-                  Sandúiche
+                  Sandúiche R$15
                 </button>
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Kiridis Combo', 25)}>
-                  Combo
+                  Combo R$25
                 </button>
               </ButtonGroup>
             </div>
@@ -376,10 +442,10 @@ function App() {
               </h6>
               <ButtonGroup className="shopCartBtnCenter">
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Franguito', 27)}>
-                  Sandúiche
+                  Sandúiche R$27
                 </button>
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Franguito Combo', 37)}>
-                  Combo
+                  Combo R$37
                 </button>
               </ButtonGroup>
             </div>
@@ -394,17 +460,20 @@ function App() {
                 />
               </div>
               <h2 className="cardProductTitle">
-                Quiri Taki R$26
+                Quiri Taki
               </h2>
               <h6 className="cardProductDescription">
                 Burger vegê, mussarela, mix de cogumelos, mix de folhas, barbecue e molho especial.
               </h6>
+              <h6 style={{ color: 'green', display: 'flex', justifyContent: 'center' }}>
+                opção vegetariana
+              </h6>
               <ButtonGroup className="shopCartBtnCenter">
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Taki', 26)}>
-                  Sandúiche
+                  Sandúiche R$26
                 </button>
                 <button className="cardShopCartBtnGroup" onClick={() => ShopCart('Taki Combo', 36)}>
-                  Combo
+                  Combo R$36
                 </button>
               </ButtonGroup>
             </div>
@@ -413,8 +482,8 @@ function App() {
             <div className="menuCardStyle">
               <div className="cardImageBox">
                 <img
-                  src={quiriSalad}
-                  className="cardProductImage"
+                  src={quiriBatata}
+                  className="cardProductImagePotato"
                   alt="Foto do produto"
                 />
               </div>
@@ -424,8 +493,11 @@ function App() {
               <h6 className="cardProductDescription">
                 100g de fritas temperadas.
               </h6>
+              <h6 style={{ color: 'green', display: 'flex', justifyContent: 'center' }}>
+                opção vegetariana
+              </h6>
               <button className="cardShopCartBtnSingle" onClick={() => ShopCart('Fritas', 8)}>
-                porção
+                porção R$8
               </button>
             </div>
           </Col>
@@ -436,10 +508,15 @@ function App() {
           <Image src={quiriLogo} alt="logo" className="parallaxLogo" />
         </Col>
       </Row>
-      <Row md={12} className="sectionMargin">
+      <Row md={12} className="sectionMargin1">
         <Col md={6} >
-          <Image src={quiriLoja} alt="Restaurant Lounge Photo" className="restaurantLoungeImg" />
+          <Image src={quiriRestaurantLounge01} alt="Restaurant Lounge Photo" className="restaurantLoungeImg" />
         </Col>
+        <Col md={6} >
+          <Image src={quiriRestaurantLounge05} alt="Restaurant Lounge Photo" className="restaurantLoungeImg" />
+        </Col>
+      </Row>
+      <Row md={12} className="sectionMargin1">
         <Col md={6} className="restaurantText">
           <h1> What is Lorem Ipsum? </h1>
           <h8>
@@ -451,12 +528,18 @@ function App() {
             with the release of Letraset sheets containing Lorem Ipsum passages,
             and more recently with desktop publishing software like Aldus PageMaker
             including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scramLorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummLorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
             when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus PageMaker
+            including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </h8>
+        </Col>
+        <Col md={6} >
+          <Image src={quiriRestaurantLounge04} alt="Restaurant Lounge Photo" className="restaurantLoungeImg" />
         </Col>
       </Row>
       <Row className="footerBgColor">
@@ -464,16 +547,16 @@ function App() {
           <Image src={quiriLogoSmall} alt="logo" />
         </Col>
         <Col md={12} className="logoLayout">
-          <a href="http://www.instagram.com" target="blank">
+          <a href="https://www.instagram.com/quiriquiriburger/" target="blank">
             <img className="socialMediaLogo" src={instagram} alt="Instagram Logo" />
           </a>
-          <a href="http://www.facebook.com" target="blank">
+          <a href="https://www.facebook.com/quiriquiriburger" target="blank">
             <img className="socialMediaLogo" src={facebook} alt="Facebook Logo" />
           </a>
-          <a href="http://www.tripadvisor.com" target="blank">
+          <a href="https://www.tripadvisor.com/Restaurant_Review-g2159104-d8068069-Reviews-Quiri_Quiri_Gourmet_Burger-Alto_Paraiso_de_Goias_Chapada_dos_Veadeiros_National_.html" target="blank">
             <img className="socialMediaLogo" src={tripadvisor} alt="TripAdvisor Logo" />
           </a>
-          <a href="http://www.whatsapp.com" target="blank">
+          <a href="https://wa.me/5562982459389?text=Olá,%20quero%20pedir%20um%20Quiri!" target="blank">
             <img className="socialMediaLogo" src={whatsapp} alt="Whatsapp Logo" />
           </a>
         </Col>
