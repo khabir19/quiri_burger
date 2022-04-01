@@ -137,16 +137,16 @@
     padding-left: 5rem;
   }
 
-  .menuCardStyle {
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-    background-color: rgb(255, 255, 255);
-    border-radius: 1.5rem;
-    padding: 1.5rem;
-    padding-top: 0.5rem;
-    transition: all .2s ease-in-out;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
+        .menuCardStyle {
+          margin-top: 0.5rem;
+          margin-bottom: 1.5rem;
+          background-color: rgb(255, 255, 255);
+          border-radius: 1.5rem;
+          padding: 1.5rem;
+          padding-top: 0.5rem;
+          transition: all .2s ease-in-out;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
 
   .menuCardStyle:hover {
     transform: scale(1.1);
