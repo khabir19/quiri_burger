@@ -255,8 +255,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     align-content: baseline;
-    display: 'flex';
-    justify-content: 'center';
+    display: flex;
+    justify-content: center;
     margin-top: 1rem;
   }
 

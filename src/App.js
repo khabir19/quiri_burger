@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React, { useState } from 'react';
-import { Nav, Navbar, Container, Row, Col, Button, Image, Carousel, Offcanvas, Dropdown, ButtonGroup } from "react-bootstrap"
+import { Nav, Navbar, Container, Row, Col, Button, Image, Carousel, Offcanvas, Dropdown, ButtonGroup } from "react-bootstrap";
 import instagram from "./assets/img/instagram.png";
 import facebook from "./assets/img/facebook.png";
 import tripadvisor from "./assets/img/tripadvisor.png";
@@ -33,7 +33,6 @@ function App() {
   const [countItem, setCountItem] = useState(0);
   const [countValue, setCountValue] = useState([]);
   const [totalValue, setTotalValue] = useState();
-
 
   function ShopCart(nomeDoBurger, valorDoBurger) {
 
